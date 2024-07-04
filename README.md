@@ -1,9 +1,9 @@
 
-# Project Title
+# Asset Indoor Locator
 
 A ionic Vue and express node asset location management
 
-Asset Indoor Location is an application designed to monitor and track devices within indoor facilities and companies. It can integrate with APIs from any BLE detection system or similar technology. The application allows for managing floor plans and route maps to locate one or more assets and provides real-time device monitoring.
+Asset Indoor Locator is an application designed to monitor and track devices within indoor facilities and companies. It can integrate with APIs from any BLE detection system or similar technology. The application allows for managing floor plans and route maps to locate one or more assets and provides real-time device monitoring.
 
 
 ## Authors
