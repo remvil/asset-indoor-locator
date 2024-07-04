@@ -1,0 +1,14 @@
+bff/node_modules
+bff/.env
+bff/package-lock.json
+
+frontend/node_modules
+frontend/dist
+frontend/dev-dist
+frontend/android
+frontend/ios
+frontend/.env
+frontend/.env.dev
+frontend/package-lock.json
+
+TODO.list

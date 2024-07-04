@@ -1,0 +1,52 @@
+body {
+	font-family: "Roboto", sans-serif;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	background-color: #f5f5f5;
+}
+
+.mdl-card {
+	width: 40rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+}
+
+.mdl-button--custom {
+	margin-top: 20px;
+}
+
+.description {
+	margin: 20px;
+	font-size: 1.2em;
+}
+.language-selector {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+#language {
+	display: none;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	z-index: 1000;
+	width: 100%;
+	margin-top: 5px;
+}
+
+.language-selector .mdl-button {
+	width: 8.9rem;
+	margin: 0;
+	padding: 0;
+	border: none;
+}

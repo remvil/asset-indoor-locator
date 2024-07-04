@@ -1,0 +1,36 @@
+####################################
+######## TEST API INTERNE ##########
+####################################
+
+### Healthcheck api/healtcheck
+GET http://localhost:3000/api/healthcheck
+
+
+######## MAP LAYOUTS ########## 
+
+### Map - api/map/planimetry/battipaglia/ - Layouts Flat 1 Battipaglia Offices
+GET http://localhost:3000/api/map/planimetry/Battipaglia/4
+
+### Map - api/map/planimetry/salerno - Layout Generic Flat Salerno Offices
+GET http://localhost:3000/api/map/planimetry/salerno
+
+### Map Assets - api/map/assets/battipaglia
+GET http://localhost:3000/api/map/assets/battipaglia
+
+### Map Assets - api/map/assets/battipaglia/1
+GET http://localhost:3000/api/map/assets/battipaglia/1
+
+
+######## PATHS ##########
+
+### Path - api/path/plan4 - Path Flat 4 Battipaglia Offices
+GET http://localhost:3000/api/path/avellino/5
+
+### Path - api/map/shortestpath/demo - Simulate shortest path to Room 1
+GET http://localhost:3000/api/map/shortestpath/demo
+
+
+######## ASSETS ##########
+
+### Assets - api/assets - List all Generic Flat Assets
+GET http://localhost:3000/api/assets/list/battipaglia

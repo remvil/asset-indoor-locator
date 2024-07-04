@@ -1,0 +1,7 @@
+{
+	"name": "Asset Locator",
+	"integrations": {
+		"capacitor": {}
+	},
+	"type": "vue-vite"
+}

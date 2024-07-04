@@ -1,0 +1,149 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 1,
+				"batteryLevel": 15,
+				"tagId": "1u4v5w6x",
+				"name": "Tag1 Room 1",
+				"description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+				"floor": 4,
+				"lon": 14.972687877530161,
+				"lat": 40.61715021229716
+			},
+			"geometry": {
+				"coordinates": [14.972687877530161, 40.61715021229716],
+				"type": "Point"
+			},
+			"id": 700
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 2,
+				"batteryLevel": 35,
+				"tagId": "5e6f7g8h",
+				"name": "Patient Monitor",
+				"description": "Inventore quia esse eum. Et sit consequatur eaque libero. Optio ut voluptates enim alias et. Et iusto accusamus perspiciatis. Repudiandae ut officiis quo autem in.",
+				"floor": 4,
+				"lon": 14.972794748927441,
+				"lat": 40.617181232598031
+			},
+			"geometry": {
+				"coordinates": [14.972794748927441, 40.61718123259803],
+				"type": "Point"
+			},
+			"id": 701
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 3,
+				"batteryLevel": 75,
+				"tagId": "3m4n5o6p",
+				"name": "Electrocardiograph",
+				"description": "Exercitationem et nihil incidunt repudiandae consequatur. Laborum in dolores ullam mollitia asperiores quia aut. Qui sunt labore aut repellat. Et itaque incidunt labore sunt.",
+				"floor": 4,
+				"lon": 14.972825707906651,
+				"lat": 40.617124832039961
+			},
+			"geometry": {
+				"coordinates": [14.972825707906651, 40.61712483203996],
+				"type": "Point"
+			},
+			"id": 702
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 4,
+				"batteryLevel": 48,
+				"tagId": "7q8r9s0t",
+				"name": "Spirometer",
+				"description": "Soluta est reiciendis tempora. Doloribus error ut et cumque quasi. Incidunt officiis modi in non voluptas officiis. Dolores dolores et exercitationem. Aperiam distinctio quod doloribus.",
+				"floor": 4,
+				"lon": 14.972727877530161,
+				"lat": 40.617143632231261
+			},
+			"geometry": {
+				"coordinates": [14.972861207537079, 40.61715021229716],
+				"type": "Point"
+			},
+			"id": 703
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 5,
+				"name": "Endoscope",
+				"description": "Sed laborum ut fuga officiis et sit. Cum sed eum aut asperiores et. Et asperiores sit eligendi quidem eos aliquid soluta. Aspernatur consequatur dolores voluptas consequatur.",
+				"tagId": "5y6z7a8b",
+				"batteryLevel": 90,
+				"floor": 4,
+				"lon": 14.972726198178634,
+				"lat": 40.61719110848598
+			},
+			"geometry": {
+				"coordinates": [14.972726198178634, 40.61719110848598],
+				"type": "Point"
+			},
+			"id": 704
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 6,
+				"name": "Scanner CT",
+				"description": "Quam adipisci ea repellat reprehenderit est. Voluptatem recusandae omnis autem molestiae architecto sint. Et enim eaque ipsa eos sit placeat officiis. Qui sint rerum et laborum et sit.",
+				"tagId": "9c0d1e2f",
+				"batteryLevel": 12,
+				"floor": 4,
+				"lon": 14.972836198178634,
+				"lat": 40.61719910848598
+			},
+			"geometry": {
+				"coordinates": [14.972836198178634, 40.61719910848598],
+				"type": "Point"
+			},
+			"id": 705
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 7,
+				"name": "MRI Machine",
+				"description": "Architecto sunt corrupti quia. Exercitationem enim sit eveniet quasi eligendi. Iure et tempora non eius accusamus. Natus aut quia voluptatem est.",
+				"tagId": "3g4h5i6j",
+				"batteryLevel": 98,
+				"floor": 4,
+				"lon": 14.972794748927441,
+				"lat": 40.61712483203996
+			},
+			"geometry": {
+				"coordinates": [14.972794748927441, 40.61712483203996],
+				"type": "Point"
+			},
+			"id": 706
+		},
+		{
+			"type": "Feature",
+			"properties": {
+				"id": 8,
+				"name": "ECG",
+				"description": "Voluptatem fugit ipsa consectetur sunt numquam. Labore eius dolores ducimus in. Aut aut natus quia fugiat numquam. Eos id non aperiam sequi.",
+				"tagId": "7k8l9m0n",
+				"batteryLevel": 12,
+				"floor": 4,
+				"lon": 14.972736198178634,
+				"lat": 40.61716910848598
+			},
+			"geometry": {
+				"coordinates": [14.972736198178634, 40.61716910848598],
+				"type": "Point"
+			},
+			"id": 707
+		}
+	]
+}

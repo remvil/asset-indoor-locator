@@ -1,0 +1,10 @@
+{
+"type": "FeatureCollection",
+"name": "Assets aziendali",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "id": "1", "Name": "Ecografo 1", "description": "Ecografo pronto soccorso" }, "geometry": { "type": "Point", "coordinates": [ 14.8487136, 40.6370868 ] } },
+{ "type": "Feature", "properties": { "id": "2", "Name": "Tomografo 1", "description": "Tomografo sala 1" }, "geometry": { "type": "Point", "coordinates": [ 14.848725, 40.6369774 ] } },
+{ "type": "Feature", "properties": { "id": "3", "Name": "Elettrocardiografo", "description": "Elettrocardiografo Sala 2" }, "geometry": { "type": "Point", "coordinates": [ 14.8486016, 40.636919 ] } }
+]
+}
