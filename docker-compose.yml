@@ -1,14 +1,14 @@
 services:
   fe:
-    hostname: ival-fe
-    container_name: ival-fe
+    hostname: ail-fe
+    container_name: ail-fe
     build:
       context: ./frontend
     ports:
       - "${HOST_FRONTEND_PORT}:${CONTAINER_FRONTEND_PORT}"
     volumes:
       - ./frontend:/usr/src/ionic-app
-      - assloc_ionic:/usr/src/ionic-app/node_modules
+      - ail_ionic:/usr/src/ionic-app/node_modules
     env_file:
       - ./.env
       - ./frontend/.env
@@ -16,8 +16,8 @@ services:
       - ionic-nw
 
   be:
-    hostname: ival-be
-    container_name: ival-be
+    hostname: ail-be
+    container_name: ail-be
     build:
       context: ./bff
     ports:
@@ -32,8 +32,8 @@ services:
       - ionic-nw
 
 volumes:
-  assloc_ionic:
-    name: assloc_volume
+  ail_ionic:
+    name: ail_volume
     driver: local
 
 networks:
