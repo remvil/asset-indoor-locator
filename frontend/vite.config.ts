@@ -13,8 +13,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Nome della tua App',
-        short_name: 'NomeCorto',
+        name: 'Indoor Asset Locator',
+        short_name: 'IAL',
         start_url: '.',
         display: 'standalone',
         background_color: '#ffffff',
