@@ -21,12 +21,12 @@ export default defineConfig({
         description: 'Descrizione della tua App PWA.',
         icons: [
           {
-            src: 'images/icons/android-chrome-192x192.png',
+            src: './icons/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: 'images/icons/android-chrome-512x512.png',
+            src: './icons/android-chrome-512x512.png',
             sizes: '512x512',
             type: 'image/png',
           },
