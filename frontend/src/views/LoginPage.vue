@@ -53,7 +53,7 @@ const credentials = ref({ username: '', password: '' });
 const router = useIonRouter();
 const logoPath = 'images/login-logo.png';
 const passwordFieldType = ref<TextFieldTypes>('password');
-const errorMessage = ref<string | null>(null); // Ref per il messaggio di errore
+const errorMessage = ref<string | null>(null); 
 
 
 // Check for token on component mount
@@ -83,8 +83,9 @@ const handleLogin = async () => {
 
 	try {
 		const loginResp = await login(credentials.value);
+		console.log(loginResp);
 		const { msg, code }: ExtAPIResponse = JSON.parse(loginResp);
-
+		
 		if (code === -1) {
 			presentToast('bottom', msg, 'warning');
 		}
