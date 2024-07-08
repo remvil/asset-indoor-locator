@@ -1,9 +1,9 @@
 bff/node_modules
 bff/.env
 bff/package-lock.json
+bff/restclient/rest_calls.http
 
 frontend/node_modules
-frontend/dist
 frontend/dev-dist
 frontend/android
 frontend/ios
@@ -12,3 +12,4 @@ frontend/.env.dev
 frontend/package-lock.json
 
 TODO.list
+bff/restclient/rest_calls.http

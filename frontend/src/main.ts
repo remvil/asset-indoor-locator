@@ -36,6 +36,8 @@ import "./theme/variables.css";
 
 import "vue3-openlayers/styles.css";
 
+// import './registerServiceWorker.js';
+
 import OpenLayersMap from "vue3-openlayers";
 
 const app = createApp(App).use(IonicVue).use(router).use(OpenLayersMap /*, options */).component("ion-icon", IonIcon);

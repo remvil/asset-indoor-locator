@@ -34,3 +34,84 @@ GET http://localhost:3000/api/map/shortestpath/demo
 
 ### Assets - api/assets - List all Generic Flat Assets
 GET http://localhost:3000/api/assets/list/battipaglia
+
+
+
+
+
+####################################
+######## TEST API ESTERNE ##########
+####################################
+
+### LogTEST GOOGLE  
+
+GET http://www.google.com HTTP/1.1
+
+### Login 
+
+POST http://185.169.239.178:8180/localsenseadmin/login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "admin",
+    "password": "3394296ad97b4e2073c3934254526136"
+}
+
+### Get Tag
+
+GET http://185.169.239.178:8180/localsenseadmin/tag/getAllTagUpgrade HTTP/1.1
+content-type: application/json
+Token: eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiIxOTIuMTY4LjMuNzIiLCJleHAiOjE3MjAyMTMyMjAsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.P5P7CaczrKlZZfRctglO3tZ9XcCTBIXaqkBz7Kvl4uI
+
+{
+    "username": "admin",
+}
+
+### Get All Resources
+
+GET http://185.169.239.178:8180/localsenseadmin/authorManage/getAllResource HTTP/1.1
+content-type: application/json
+Token: eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiIxOTIuMTY4LjMuNzIiLCJleHAiOjE3MjAyMTMyMjAsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.P5P7CaczrKlZZfRctglO3tZ9XcCTBIXaqkBz7Kvl4uI
+
+{
+    "username": "admin",
+}
+
+### Get Layers
+
+GET http://185.169.239.178:8180/localsense/tag/getTagAreaAndVertex?tagIds=217520344667621 HTTP/1.1
+content-type: application/json
+Token: eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiIxOTIuMTY4LjMuNzIiLCJleHAiOjE3MjAyMTMyMjAsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.P5P7CaczrKlZZfRctglO3tZ9XcCTBIXaqkBz7Kvl4uI
+
+{
+    "username": "admin",
+		"tagIds": "217520344667621",
+}
+
+
+### Get Tag Layer
+
+GET http://185.169.239.178:8180/localsenseadmin/setting/getLayers HTTP/1.1
+content-type: application/json
+Token: eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiIxOTIuMTY4LjMuNzIiLCJleHAiOjE3MjAyMTMyMjAsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.P5P7CaczrKlZZfRctglO3tZ9XcCTBIXaqkBz7Kvl4uI
+
+{
+    "tagIds": "132317272721037",
+}
+
+### Get Tag Real Time Status
+
+GET http://185.169.239.178:8180/localsense/androidApp/isTagLocated?tagIds=217520344667621 HTTP/1.1
+content-type: application/json
+Token: eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiIxOTIuMTY4LjMuNzIiLCJleHAiOjE3MjAyMTMyMjAsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.P5P7CaczrKlZZfRctglO3tZ9XcCTBIXaqkBz7Kvl4uI
+
+{
+    "tagIds": "217520344667621",
+}
+
+# "217520344667621": "Badge Ospiti",
+# "256481716798220": "Braccialetto",
+# "132317272721037": "Badge Mariano"
+
+### REAL API
+GET http://185.169.239.178:5000/api/asset
