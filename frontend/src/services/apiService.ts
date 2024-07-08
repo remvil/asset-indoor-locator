@@ -45,24 +45,24 @@ export const fetchAPIObservable = (endpoint: string, options: any = {}): Observa
 };
 
 export const login = async (credentials: {username: string; password: string}) => {
-	const {data, error} = await useFetch<any>(`${VITE_PROD_API_BASE_URL}/login`).post(buildRequestBody(credentials));
+	// const {data, error} = await useFetch<any>(`${VITE_PROD_API_BASE_URL}/login`).post(buildRequestBody(credentials));
 
-	const apiResp: ExtAPIResponse = JSON.parse(data.value);
-	if (error.value || !apiResp) {
-		removeStoredUser();
-		throw new Error("Login failed");
-	}
+	// const apiResp: ExtAPIResponse = JSON.parse(data.value);
+	// if (error.value || !apiResp) {
+	// 	removeStoredUser();
+	// 	throw new Error("Login failed");
+	// }
 
-	// Wrong credential case
-	if (apiResp.code === -1) {
-		removeStoredUser();
-	}
+	// // Wrong credential case
+	// if (apiResp.code === -1) {
+	// 	removeStoredUser();
+	// }
 
-	// Success authentication
-	if (apiResp.code === 200) {
-		setStoredUser({name: "Max", token: apiResp.data});
-	}
-	cleanCredentials(credentials);
+	// // Success authentication
+	// if (apiResp.code === 200) {
+	// 	setStoredUser({name: "Max", token: apiResp.data});
+	// }
+	// cleanCredentials(credentials);
 	// return data.value;
 
 	// Simulate login token
