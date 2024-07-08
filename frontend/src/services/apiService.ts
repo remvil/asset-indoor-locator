@@ -75,16 +75,16 @@ export const logout = () => {
 	presentToast("bottom", "Logged out", "success");
 };
 
-const buildRequestBody = (credentials: {username: string; password: string}) => {
-	const hashedPasswd = Md5.hashStr(Md5.hashStr(credentials.password) + VITE_API_SALT);
+// const buildRequestBody = (credentials: {username: string; password: string}) => {
+// 	const hashedPasswd = Md5.hashStr(Md5.hashStr(credentials.password) + VITE_API_SALT);
 
-	const requestBody = {
-		username: credentials.username,
-		password: hashedPasswd,
-	};
+// 	const requestBody = {
+// 		username: credentials.username,
+// 		password: hashedPasswd,
+// 	};
 
-	return requestBody;
-};
+// 	return requestBody;
+// };
 
 const cleanCredentials = (credentials: {username: string; password: string}) => {
 	credentials.username = "";
