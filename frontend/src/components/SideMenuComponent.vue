@@ -7,8 +7,8 @@
 		</ion-header>
 		<ion-content>
 			<div class="menu-header">
-				<p>Admin</p>
-				<p>Version: 1.0.0</p>
+				<p>Hi User</p>
+				<p>Version: {{version}}</p>
 				<p>Description:
 					Asset Locator&trade;, developed and managed by Company Ltd., represents a cutting-edge application designed
 					to streamline and enhance the asset management process for businesses. Launched in 2024, this application
@@ -29,7 +29,9 @@
 import { useIonRouter, IonMenu, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel, menuController } from '@ionic/vue';
 import { logOut as logOutIcon } from 'ionicons/icons';
 import { logout as handleLogout } from '@/services/apiService';
+import pkg from '../../package.json';
 
+const version = pkg.version;
 const router = useIonRouter();
 
 const logout = () => {

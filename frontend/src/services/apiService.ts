@@ -62,9 +62,12 @@ export const login = async (credentials: {username: string; password: string}) =
 	if (apiResp.code === 200) {
 		setStoredUser({name: "Max", token: apiResp.data});
 	}
-
 	cleanCredentials(credentials);
-	return data.value;
+	// return data.value;
+
+	// Simulate login token
+	setStoredUser({name: "Max", token: "oneTokenLikeeyJhbGciOiJIUzI1NiJ9.eyJ1a"});
+	return `{"code":200,"msg":"success","data":"eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiI5My42NS4xODkuNjYiLCJleHAiOjE3MjA0ODA3NTIsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.gNFl3OsXuDjx6uN01qDn0e3zV3uiLttfyQoHQJkpZic"}`;
 };
 
 export const logout = () => {
