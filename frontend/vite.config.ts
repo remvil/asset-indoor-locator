@@ -13,20 +13,20 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.png', 'robots.txt', 'apple-touch-icon.png'],
       manifest: {
-        name: 'Nome della tua App',
-        short_name: 'NomeCorto',
+        name: 'Indoor Asset Locator',
+        short_name: 'IAL',
         start_url: '.',
         display: 'standalone',
         background_color: '#ffffff',
         description: 'Descrizione della tua App PWA.',
         icons: [
           {
-            src: 'images/icons/android-chrome-192x192.png',
+            src: './icons/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: 'images/icons/android-chrome-512x512.png',
+            src: './icons/android-chrome-512x512.png',
             sizes: '512x512',
             type: 'image/png',
           },

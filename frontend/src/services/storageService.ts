@@ -35,3 +35,14 @@ export const getToken = async (): Promise<string> => {
 		return "";
 	}
 };
+
+
+export const getUserName = async (): Promise<string> => {
+	const user = await getStoredUser();
+
+	if (user) {
+		return user.name || "generic_user";
+	} else {
+		return "generic_user";
+	}
+};

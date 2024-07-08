@@ -43,6 +43,10 @@ GET http://localhost:3000/api/assets/list/battipaglia
 ######## TEST API ESTERNE ##########
 ####################################
 
+### LogTEST GOOGLE  
+
+GET http://www.google.com HTTP/1.1
+
 ### Login 
 
 POST http://185.169.239.178:8180/localsenseadmin/login HTTP/1.1
