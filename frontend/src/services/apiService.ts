@@ -45,29 +45,29 @@ export const fetchAPIObservable = (endpoint: string, options: any = {}): Observa
 };
 
 export const login = async (credentials: {username: string; password: string}) => {
-	// const {data, error} = await useFetch<any>(`${VITE_PROD_API_BASE_URL}/login`).post(buildRequestBody(credentials));
+	const {data, error} = await useFetch<any>(`${VITE_PROD_API_BASE_URL}/login`).post(buildRequestBody(credentials));
 
-	// const apiResp: ExtAPIResponse = JSON.parse(data.value);
-	// if (error.value || !apiResp) {
-	// 	removeStoredUser();
-	// 	throw new Error("Login failed");
-	// }
+	const apiResp: ExtAPIResponse = JSON.parse(data.value);
+	if (error.value || !apiResp) {
+		removeStoredUser();
+		throw new Error("Login failed");
+	}
 
-	// // Wrong credential case
-	// if (apiResp.code === -1) {
-	// 	removeStoredUser();
-	// }
+	// Wrong credential case
+	if (apiResp.code === -1) {
+		removeStoredUser();
+	}
 
-	// // Success authentication
-	// if (apiResp.code === 200) {
-	// 	setStoredUser({name: "Max", token: apiResp.data});
-	// }
+	// Success authentication
+	if (apiResp.code === 200) {
+		setStoredUser({name: "Max", token: apiResp.data});
+	}
+	cleanCredentials(credentials);
+	// return data.value;
+
 	// Simulate login token
 	setStoredUser({name: "Max", token: "oneTokenLikeeyJhbGciOiJIUzI1NiJ9.eyJ1a"});
 	return `{"code":200,"msg":"success","data":"eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiI5My42NS4xODkuNjYiLCJleHAiOjE3MjA0ODA3NTIsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.gNFl3OsXuDjx6uN01qDn0e3zV3uiLttfyQoHQJkpZic"}`;
-	cleanCredentials(credentials);
-	// return data.value;
-	
 };
 
 export const logout = () => {
@@ -75,16 +75,16 @@ export const logout = () => {
 	presentToast("bottom", "Logged out", "success");
 };
 
-// const buildRequestBody = (credentials: {username: string; password: string}) => {
-// 	const hashedPasswd = Md5.hashStr(Md5.hashStr(credentials.password) + VITE_API_SALT);
+const buildRequestBody = (credentials: {username: string; password: string}) => {
+	const hashedPasswd = Md5.hashStr(Md5.hashStr(credentials.password) + VITE_API_SALT);
 
-// 	const requestBody = {
-// 		username: credentials.username,
-// 		password: hashedPasswd,
-// 	};
+	const requestBody = {
+		username: credentials.username,
+		password: hashedPasswd,
+	};
 
-// 	return requestBody;
-// };
+	return requestBody;
+};
 
 const cleanCredentials = (credentials: {username: string; password: string}) => {
 	credentials.username = "";
