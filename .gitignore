@@ -4,7 +4,6 @@ bff/package-lock.json
 bff/restclient/rest_calls.http
 
 frontend/node_modules
-frontend/dev-dist
 frontend/android
 frontend/ios
 frontend/.env
