@@ -15,16 +15,6 @@
 </head>
 
 <body>
-	<!-- <div class="language-selector">
-		<button id="language-button"
-			class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-button--custom">
-			<i class="material-icons">translate</i>
-		</button>
-		<select id="language" class="mdl-textfield__input">
-			<option value="en">English</option>
-			<option value="it">Italiano</option>
-		</select>
-	</div> -->
 	<div class="language-selector">
 		<button id="language-button"
 			class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent mdl-button--custom">
@@ -49,13 +39,13 @@
 			</p>
 		</div>
 		<div class="mdl-card__actions mdl-card--border">
-			<a href="http://localhost:3000/docs" target="_blank"
+			<a href="{{HOST_API_URL}}/docs" target="_blank"
 				class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">
 				<i class="material-icons">code</i> <span id="documentation-button">Go to API documentation</span>
 			</a>
 		</div>
 		<div class="mdl-card__actions mdl-card--border">
-			<a href="http://localhost:5173/" id="mobile-app-link"
+			<a href="{{HOST_APP_URL}}/" id="mobile-app-link"
 				class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect mdl-button--accent">
 				<i class="material-icons">smartphone</i> Go to Mobile Application
 			</a>
