@@ -42,7 +42,7 @@ app.get("/", (_req: Request, res: Response, next) => {
 
 		let result = data.replace(/{{HOST_API_URL}}/g, HOST_API_URL)
 						 .replace(/{{HOST_APP_URL}}/g, HOST_APP_URL);
-
+		console.log(HOST_APP_URL);
 		res.setHeader(
 			"Content-Security-Policy",
 			"default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:"
