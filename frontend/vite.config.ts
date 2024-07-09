@@ -17,17 +17,22 @@ export default defineConfig({
         short_name: 'IAL',
         start_url: '.',
         display: 'standalone',
-        background_color: '#ffffff',
+        background_color: '#A22222',
         description: 'Descrizione della tua App PWA.',
         icons: [
           {
-            src: './icons/android-chrome-192x192.png',
+            src: './images/icons/android-chrome-192x192.png',
             sizes: '192x192',
             type: 'image/png',
           },
           {
-            src: './icons/android-chrome-512x512.png',
+            src: './images/icons/android-chrome-512x512.png',
             sizes: '512x512',
+            type: 'image/png',
+          },
+					{
+            src: './images/icons/android-chrome-1024x1024.png',
+            sizes: '1024x1024',
             type: 'image/png',
           },
         ],
