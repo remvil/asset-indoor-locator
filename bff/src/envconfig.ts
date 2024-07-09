@@ -15,3 +15,5 @@ export const HOST_SERVER_PORT = process.env.HOST_SERVER_PORT || 3001;
 export const ENVIRONMENT = process.env.ENVIRONMENT_NAME as EnvType;
 export const VERSION = require("../package.json").version;
 export const SECRETKEY = process.env.SECRET_KEY ?? "thisIsAVerySecretKey!";
+export const HOST_APP_URL = process.env.HOST_APP_URL ?? "http://localhost:3000";
+export const HOST_API_URL = process.env.HOST_API_URL ?? "http://localhost:5173";

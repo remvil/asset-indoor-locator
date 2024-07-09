@@ -4,12 +4,13 @@ import cors from "cors";
 import helmet from "helmet";
 import swaggerUi from "swagger-ui-express";
 import {apiRouter} from "./api/index";
-import {CORSHOSTS, ENVIRONMENT, CONTAINER_SERVER_PORT} from "./envconfig";
+import {CORSHOSTS, ENVIRONMENT, HOST_SERVER_PORT, HOST_API_URL, HOST_APP_URL} from "./envconfig";
 import {Logger, initLogger} from "./helpers/logger";
 import {swaggerSpec} from "./swagger";
 import path from "path";
+import fs from "fs";
 
-if (!CONTAINER_SERVER_PORT || !ENVIRONMENT) process.exit(1);
+if (!HOST_SERVER_PORT || !ENVIRONMENT) process.exit(1);
 
 initLogger();
 const app = express();
@@ -32,17 +33,25 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use("/api", apiRouter);
 
-// Content Security Policy (CSP) Middleware on  "/"
 app.get("/", (_req: Request, res: Response, next) => {
-	res.sendFile(path.join(__dirname, "index.html"));
-	res.setHeader(
-		"Content-Security-Policy",
-		"default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:"
-	);
-	// next();
+	const filePath = path.join(__dirname, "index.html");
+	fs.readFile(filePath, 'utf8', (err, data) => {
+		if (err) {
+			return res.status(500).send('Error loading HTML file');
+		}
+
+		let result = data.replace(/{{HOST_API_URL}}/g, HOST_API_URL)
+						 .replace(/{{HOST_APP_URL}}/g, HOST_APP_URL);
+		console.log(HOST_APP_URL);
+		res.setHeader(
+			"Content-Security-Policy",
+			"default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:"
+		);
+
+		res.send(result);
+	});
 });
 
-// Avvia il server
-app.listen(CONTAINER_SERVER_PORT, () => {
-	Logger.writeEvent(`BFF listening at http://localhost:${CONTAINER_SERVER_PORT} on ${ENVIRONMENT} environment`);
+app.listen(HOST_SERVER_PORT, () => {
+	Logger.writeEvent(`BFF listening at http://${HOST_API_URL}:${HOST_SERVER_PORT} on ${ENVIRONMENT} environment`);
 });
