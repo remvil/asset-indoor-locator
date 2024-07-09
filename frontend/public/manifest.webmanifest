@@ -1,12 +1,5 @@
 {
-  "name": "Asset Indoor Locator",
-  "short_name": "AIL",
-  "description": "An Ionic project for locating indoor assets efficiently.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#4e8ef7",
-  "orientation": "portrait-primary",
+  "background_color": "#A22222",
   "icons": [
     {
       "src": "../icons/icon-48.webp",
@@ -50,11 +43,5 @@
       "sizes": "512x512",
       "purpose": "any maskable"
     }
-  ],
-  "categories": [
-    "utilities",
-    "productivity"
-  ],
-  "lang": "it-IT",
-  "dir": "ltr"
+  ]
 }

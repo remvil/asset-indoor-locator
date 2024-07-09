@@ -10,8 +10,13 @@
     "lint": "eslint .",
     "dev": "vite",
     "devhost": "vite --host",
-    "ionbuild": "ionic build",
-    "preview": "vite preview"
+		"build:gen-assets": "npx capacitor-assets generate --pwa --splashBackgroundColor '#A22222'",
+		"build:copy-assets": "npx cap copy",
+		"build:sync": "npx cap sync",
+		"build:ionic": "ionic build",
+		"deploy:firebase": "firebase deploy",
+		"build:dist": "npm run build:gen-assets && npm run build:copy-assets && npm run build:sync && npm run build:ionic",
+		"deploy": "npm run deploy:firebase"
   },
   "dependencies": {
     "@capacitor/android": "^6.1.0",
