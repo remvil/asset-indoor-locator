@@ -6,7 +6,7 @@ import {Md5} from "ts-md5";
 import {presentToast} from "./ionicComponentsService";
 import {getToken, removeStoredUser, setStoredUser} from "@/services/storageService";
 
-const {VITE_API_SALT, VITE_DEMO_API_BASE_URL, VITE_PROD_API_BASE_URL} = import.meta.env;
+const {VITE_API_SALT, VITE_DEMO_API_BASE_URL, VITE_MAX_API_BASE_URL, VITE_PROD_API_BASE_URL} = import.meta.env;
 
 export const fetchAPIPromise = (endpoint: string) => {
 	return useFetch(`${VITE_DEMO_API_BASE_URL}/${endpoint}`)
@@ -44,30 +44,56 @@ export const fetchAPIObservable = (endpoint: string, options: any = {}): Observa
 	);
 };
 
+export const fetchAPIMaxObs = (endpoint: string, options: any = {}): Observable<any> => {
+	const authToken = getToken();
+	if (!authToken) {
+		presentToast("bottom", "You are not logged in", "danger");
+		return of();
+	}
+
+	const headers = {
+		Token: `${authToken}`,
+		...options.headers,
+	};
+	return from(useFetch(`${VITE_MAX_API_BASE_URL}/${endpoint}`, headers).json()).pipe(
+		map(({data, error}) => {
+			if (error.value) {
+				throw new Error(`Obs API Error: ${error.value.message}`);
+			}
+			return data.value;
+		}),
+		catchError((error) => {
+			console.error("Obs API Error catched:", error);
+			return throwError(error);
+		})
+	);
+};
+
+
 export const login = async (credentials: {username: string; password: string}) => {
-	// const {data, error} = await useFetch<any>(`${VITE_PROD_API_BASE_URL}/login`).post(buildRequestBody(credentials));
+	const {data, error} = await useFetch<any>(`${VITE_PROD_API_BASE_URL}/login`).post(buildRequestBody(credentials));
 
-	// const apiResp: ExtAPIResponse = JSON.parse(data.value);
-	// if (error.value || !apiResp) {
-	// 	removeStoredUser();
-	// 	throw new Error("Login failed");
-	// }
+	const apiResp: ExtAPIResponse = JSON.parse(data.value);
+	if (error.value || !apiResp) {
+		removeStoredUser();
+		throw new Error("Login failed");
+	}
 
-	// // Wrong credential case
-	// if (apiResp.code === -1) {
-	// 	removeStoredUser();
-	// }
+	// Wrong credential case
+	if (apiResp.code === -1) {
+		removeStoredUser();
+	}
 
-	// // Success authentication
-	// if (apiResp.code === 200) {
-	// 	setStoredUser({name: "Max", token: apiResp.data});
-	// }
-	// cleanCredentials(credentials);
-	// return data.value;
+	// Success authentication
+	if (apiResp.code === 200) {
+		setStoredUser({name: "Max", token: apiResp.data});
+	}
+	cleanCredentials(credentials);
+	return data.value;
 
 	// Simulate login token
-	setStoredUser({name: "Max", token: "oneTokenLikeeyJhbGciOiJIUzI1NiJ9.eyJ1a"});
-	return `{"code":200,"msg":"success","data":"eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiI5My42NS4xODkuNjYiLCJleHAiOjE3MjA0ODA3NTIsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.gNFl3OsXuDjx6uN01qDn0e3zV3uiLttfyQoHQJkpZic"}`;
+	// setStoredUser({name: "Max", token: "oneTokenLikeeyJhbGciOiJIUzI1NiJ9.eyJ1a"});
+	// return `{"code":200,"msg":"success","data":"eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiI5My42NS4xODkuNjYiLCJleHAiOjE3MjA0ODA3NTIsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.gNFl3OsXuDjx6uN01qDn0e3zV3uiLttfyQoHQJkpZic"}`;
 };
 
 export const logout = () => {
@@ -75,16 +101,16 @@ export const logout = () => {
 	presentToast("bottom", "Logged out", "success");
 };
 
-// const buildRequestBody = (credentials: {username: string; password: string}) => {
-// 	const hashedPasswd = Md5.hashStr(Md5.hashStr(credentials.password) + VITE_API_SALT);
+const buildRequestBody = (credentials: {username: string; password: string}) => {
+	const hashedPasswd = Md5.hashStr(Md5.hashStr(credentials.password) + VITE_API_SALT);
 
-// 	const requestBody = {
-// 		username: credentials.username,
-// 		password: hashedPasswd,
-// 	};
+	const requestBody = {
+		username: credentials.username,
+		password: hashedPasswd,
+	};
 
-// 	return requestBody;
-// };
+	return requestBody;
+};
 
 const cleanCredentials = (credentials: {username: string; password: string}) => {
 	credentials.username = "";

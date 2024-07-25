@@ -48,7 +48,6 @@ $(document).ready(function () {
 	});
 
 	$("#mobile-app-link").on("click", (event) => {
-		console.log(event);
 		event.preventDefault();
 		window.open(event.currentTarget.href, "_blank", "height=600,width=400,top=100,left=100,resizable==none,location=false");
 	});
