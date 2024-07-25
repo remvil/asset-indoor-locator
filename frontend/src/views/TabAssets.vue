@@ -56,7 +56,7 @@
 import { ref, computed, onMounted } from 'vue';
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonItem, IonIcon, IonLabel, IonButton, IonSearchbar, IonModal, IonButtons, IonFooter } from '@ionic/vue';
 import { chevronForward, pricetag, close, navigateCircle, batteryHalf } from 'ionicons/icons';
-import { fetchAPIObservable } from '@/services/apiService';
+import { fetchAPIObservable, fetchAPIMaxObs } from '@/services/apiService';
 import { HospitalAsset } from '@/models/hospitalAssets';
 import proj4 from "proj4";
 
@@ -96,15 +96,25 @@ async function navigateToPageMap(lat: number, lon: number) {
 
 onMounted(async () => {
 	try {
-		// Requesting Assets to Observable API Service
-		fetchAPIObservable('assets/list/battipaglia').subscribe({
-			next: (data: HospitalAsset[]) => {
-				hospitalAssets.value = data;
+
+		fetchAPIMaxObs('map?token=eyJhbGciOiJIUzI1NiJ9.eyJ1aWQiOiJhZG1pbiIsInN1YiI6InRvcGljIiwiaXAiOiIxOTIuMTY4LjMuNzIiLCJleHAiOjE3MjEwNzg0MDEsInVpcCI6IjMzOTQyOTZhZDk3YjRlMjA3M2MzOTM0MjU0NTI2MTM2In0.EM6A46MtLi0BHcyqd4_2vAVp6VEVTA5PSwiMaWV6ey8').subscribe({
+			next: (data: any) => {
+				hospitalAssets.value = data.Data;
+				console.log(hospitalAssets.value);
 			},
 			error: (error: any) => {
 				console.error('Error API:', error);
 			}
 		});
+		// Requesting Assets to Observable API Service
+		// fetchAPIObservable('assets/list/battipaglia').subscribe({
+		// 	next: (data: HospitalAsset[]) => {
+		// 		hospitalAssets.value = data;
+		// 	},
+		// 	error: (error: any) => {
+		// 		console.error('Error API:', error);
+		// 	}
+		// });
 
 		// Requesting Assets to Promise API Service
 		// hospitalAssets.value = await fetchAPIPromise('assets/list')
